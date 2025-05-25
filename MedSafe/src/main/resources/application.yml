@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/med_safe?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC+5
+    username: postgres
+    password: erke
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+jwt:
+  secret: NzQ5dXpKVGkzU0tGVWtOd3FhbHpLZ0pDVjNDUXRBZUtXU3JqSWhBMQ==
