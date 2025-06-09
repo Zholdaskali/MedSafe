@@ -25,7 +25,7 @@ public class AuthController {
     private final JwtUtil jwtUtil;
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody RegisterRequest request, HttpServletRequest httpRequest) {
+    public ResponseEntity<User> register(@RequestBody RegisterRequest request, HttpServletRequest httpRequest) {
         User user = authService.registerUser(
                 request.getUsername(), request.getPassword(), request.getEmail(),
                 request.getFirstName(), request.getLastName(), request.getRoleId());
@@ -33,7 +33,7 @@ public class AuthController {
         auditService.log(
                 user, "REGISTER", "users", user.getUserId(), httpRequest.getRemoteAddr());
 
-        return ResponseEntity.ok("Пользователь успешно зарегистрирован");
+        return ResponseEntity.ok(user);
     }
 
     @PostMapping("/login")
